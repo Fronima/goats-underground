@@ -17,7 +17,7 @@ export default async function Portfolio() {
 
     return (
         <main className="flex h-full w-full bg-white">
-            <div className="pt-20 pl-20 w-9/12 grid row-auto gap-5">
+            <div className="pt-20 pl-20 w-9/12 flex flex-row flex-wrap gap-5">
                 { portfolio.map((project) => {
                     return (
                         <Link key={project.title} href={project.url}>
