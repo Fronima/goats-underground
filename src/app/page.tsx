@@ -4,6 +4,7 @@ import { getHomepageHeader } from "../../sanity/client";
 import imageUrlBuilder  from "@sanity/image-url";
 import { client } from "../../sanity/client";
 import { Courier_Prime } from "next/font/google";
+import { InferGetServerSidePropsType } from "next";
 
 type Homepage = {
   title: string,
@@ -13,11 +14,19 @@ type Homepage = {
 
 const courier_prime = Courier_Prime({ weight: ["400"], subsets: ["latin"]});
 
-export default async  function Home() {
+export const getServerSideProps = async () => {
+  // Fetch data from an external API
+  const homepage:Homepage[] = await getHomepageHeader();
+  return {
+    props: {
+      homepage,
+    },
+  };
+}
 
-  const homepage: Homepage[] = await getHomepageHeader();
+export default async  function Home({homepage}: Readonly<InferGetServerSidePropsType<typeof getServerSideProps>>) {
+
   const builder = imageUrlBuilder(client);
-  console.log(homepage);
 
   return (
     <main className="flex h-full w-full">

@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getProjects } from "../../../sanity/client";
 import imageUrlBuilder  from "@sanity/image-url";
 import { client } from "../../../sanity/client";
+import { InferGetServerSidePropsType } from "next";
 import Link from "next/link";
 
 type Project = {
@@ -10,9 +11,18 @@ type Project = {
     url: string,
 }
 
-export default async function Portfolio() {
-
+export const getServerSideProps = async () => {
+    // Fetch data from an external API
     const portfolio: Project[] = await getProjects();
+    return {
+        props: {
+            portfolio,
+        },
+    };
+}
+
+export default async function Portfolio({portfolio}: Readonly<InferGetServerSidePropsType<typeof getServerSideProps>>) {
+
     const builder = imageUrlBuilder(client);
 
     return (
