@@ -10,6 +10,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Monotreme",
   description: "",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -19,12 +22,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <title>{metadata.title?.toString()}</title>
-        <meta name="description" content={metadata.description?.toString()} />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="mask-icon" href="/favicon.ico" />
-      </Head>
       <body className={"h-screen w-screen"}>
         <Header/>
         {children}
