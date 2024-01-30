@@ -1,7 +1,5 @@
-import { Infer } from "next/dist/compiled/superstruct";
 import { getAbout } from "../../../sanity/client";
 import { Courier_Prime } from "next/font/google";
-import { InferGetServerSidePropsType } from "next";
 
 type About = {
     title: string,
@@ -10,17 +8,9 @@ type About = {
 
 const courier_prime = Courier_Prime({ weight: ["400"], subsets: ["latin"]});
 
-export const getServersideProps = async () => {
-    // Fetch data from an external API
-    const about:About[] = await getAbout();
-    return {
-        props: {
-            about,
-        },
-    };
-}
+export default async function About() {
 
-export default async function About({about}: Readonly<InferGetServerSidePropsType<typeof getServersideProps>>) {
+    const about:About[] = await getAbout();
 
   return (
     <main className="flex h-full w-full bg-white">

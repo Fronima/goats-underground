@@ -11,18 +11,9 @@ type Project = {
     url: string,
 }
 
-export const getServerSideProps = async () => {
-    // Fetch data from an external API
-    const portfolio: Project[] = await getProjects();
-    return {
-        props: {
-            portfolio,
-        },
-    };
-}
+export default async function Portfolio() {
 
-export default async function Portfolio({portfolio}: Readonly<InferGetServerSidePropsType<typeof getServerSideProps>>) {
-
+    const portfolio:Project[] = await getProjects();
     const builder = imageUrlBuilder(client);
 
     return (

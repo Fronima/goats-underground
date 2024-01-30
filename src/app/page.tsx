@@ -14,18 +14,11 @@ type Homepage = {
 
 const courier_prime = Courier_Prime({ weight: ["400"], subsets: ["latin"]});
 
-export const getServerSideProps = async () => {
-  // Fetch data from an external API
+
+
+export default async  function Home() {
+
   const homepage:Homepage[] = await getHomepageHeader();
-  return {
-    props: {
-      homepage,
-    },
-  };
-}
-
-export default async  function Home({homepage}: Readonly<InferGetServerSidePropsType<typeof getServerSideProps>>) {
-
   const builder = imageUrlBuilder(client);
 
   return (

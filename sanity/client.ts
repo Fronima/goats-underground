@@ -1,5 +1,6 @@
+import 'server-only'
 import { apiVersion, projectId, dataset, useCdn } from './env'
-import { createClient } from '@sanity/client'
+import { createClient, type QueryParams } from '@sanity/client'
 
 
 
@@ -10,15 +11,35 @@ export const client = createClient({
     apiVersion: apiVersion,
 })
 
-export async function getProjects() {
-    return await client.fetch(`*[_type == "project"]`)
+const dataRevalidation = process.env.DATA_REVALIDATION ?? 3600
+
+export async function sanityFetch<QueryParams>({query, params, tags}: {query: string, params?:QueryParams, tags?:string[]}) {
+    return await client.fetch(query, params ?? {}, {
+        next: {
+             tags 
+            }
+        })
 }
 
+export async function getProjects() {
+    return await sanityFetch({
+        query:`*[_type == "project"]`,
+        tags: ['projects']
+    })
+}
+
+
 export async function getAbout() {
-    return await client.fetch(`*[_type == "about"]`)
+    return await sanityFetch({
+        query:`*[_type == "about"]`,
+        tags: ['about']
+    })
 }
 
 export async function getHomepageHeader() {
-    return await client.fetch(`*[_type == "homepageInfo"]`)
+    return await sanityFetch({
+        query:`*[_type == "homepageInfo"]`,
+        tags: ['homepageInfo']
+    })
 }
 

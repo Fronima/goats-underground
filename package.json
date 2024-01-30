@@ -11,8 +11,9 @@
   "dependencies": {
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.26.0",
+    "gpg": "^0.6.0",
     "next": "14.1.0",
-    "next-sanity": "^7.0.12",
+    "next-sanity": "^7.0.17",
     "react": "^18",
     "react-dom": "^18",
     "sanity": "^3.26.0",
