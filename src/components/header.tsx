@@ -48,7 +48,7 @@ function Nav() {
             <button className={`nav-button ${!isMobile && 'hidden'}`} onClick={()=>{
                 setOpenNav(!openNav);
             }}>Menu</button>
-            <ul className={`flex gap-5 my-auto rounded-xl bg-white p-4 ${!openNav && isMobile && 'hidden'} ${isMobile ? 'absolute top-8 right-2 flex-col' : 'flex-row'}`}>
+            <ul className={`flex gap-5 my-auto rounded-xl bg-white ${!openNav && isMobile && 'hidden'} ${isMobile ? 'absolute top-8 right-2 flex-col p-4' : 'flex-row'}`}>
             {navItems.map((link) => (
                 <li key={link.href}>
                     <Link 
