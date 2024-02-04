@@ -21,4 +21,16 @@ export default defineType({
             type: "text",
         }),
     ],
+    orderings: [
+        {
+            title: "Sort Order",
+            name: "sortOrder",
+            by: [
+                {
+                    field: "sortOrder",
+                    direction: "asc",
+                },
+            ],
+        },
+    ],
 });

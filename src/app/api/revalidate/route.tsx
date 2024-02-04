@@ -20,8 +20,7 @@ export async function POST(req: NextRequest) {
         }
 
         revalidateTag(body._type);
-        console.log(req.body)
-        console.log(body);
+
         return NextResponse.json({body})
     }catch(error:any){
         console.error(error);

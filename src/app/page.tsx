@@ -23,15 +23,17 @@ export default async  function Home() {
 
   return (
     <main className="flex h-full w-full">
-      <div className="h-full w-full overflow-hidden">
+      <div className="h-full w-full">
         {
           homepage.map((section) => {
             return (
-              <div key={section.title} className={"h-full w-full overflow-hidden " + courier_prime.className}>
-                <Image src={builder.image(section.image).url()} alt={section.title} layout="fill" objectFit="cover" />
-                <div className="absolute top-1/2 pl-10 transform -translate-y-1/2 bg-black/10 backdrop-blur-sm">
-                  <h1 className="text-white text-7xl">{section.title}</h1>
-                  <p className="text-white text-2xl">{section.description}</p>
+              <div key={section.title} className={"h-full w-full" }>
+                <div className={"h-full w-full overflow-hidden "}>
+                  <Image src={builder.image(section.image).url()} alt={section.title} layout="fill" objectFit="cover" />
+                </div>
+                <div className={"absolute top-1/4 w-screen px-10 bg-black/10 backdrop-blur-sm " + courier_prime.className}>
+                    <h1 className="text-white text-4xl sm:text-6xl md:text-7xl">{section.title}</h1>
+                    <p className="text-white text-2xl">{section.description}</p>
                 </div>
               </div>
             )

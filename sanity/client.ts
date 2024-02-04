@@ -24,7 +24,7 @@ export async function sanityFetch<QueryParams>({query, params, tags}: {query: st
 export async function getProjects() {
     return await sanityFetch({
         query:`*[_type == "project"]`,
-        tags: ['projects']
+        tags: ['project']
     })
 }
 
@@ -40,6 +40,13 @@ export async function getHomepageHeader() {
     return await sanityFetch({
         query:`*[_type == "homepageInfo"]`,
         tags: ['homepageInfo']
+    })
+}
+
+export async function getContact() {
+    return await sanityFetch({
+        query:`*[_type == "contact"]`,
+        tags: ['contact']
     })
 }
 
