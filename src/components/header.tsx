@@ -12,7 +12,7 @@ const courier_prime = Courier_Prime({ weight: ["400"], subsets: ["latin"]});
 
 export function Header() {
     return (
-        <header className={"sticky top-0 w-full bg-white z-30 absolute " + courier_prime.className}>
+        <header className={"fixed top-0 w-full bg-white z-30 " + courier_prime.className}>
             <Nav/>
         </header>
     );
@@ -48,11 +48,12 @@ function Nav() {
             <button className={`nav-button ${!isMobile && 'hidden'}`} onClick={()=>{
                 setOpenNav(!openNav);
             }}>Menu</button>
-            <ul className={`flex gap-5 my-auto rounded-xl bg-white ${!openNav && isMobile && 'hidden'} ${isMobile ? 'absolute top-8 right-2 flex-col p-4' : 'flex-row'}`}>
+            <ul className={`flex gap-5 my-auto rounded-xl bg-white ${!openNav && isMobile && 'hidden'} ${isMobile ? 'absolute top-8 right-2 flex-col p-4' : 'flex-row'}`}
+                onClick={()=> setOpenNav(false)}>
             {navItems.map((link) => (
                 <li key={link.href}>
                     <Link 
-                        className={`text-2xl ${currentPath === link.href ? 'text-purple-900' : ''}`}
+                        className={`text-2xl ${currentPath === link.href ? 'underline' : ''}`}
                         href={link.href}
                     >{link.name}</Link>
                 </li>

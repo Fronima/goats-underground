@@ -20,5 +20,15 @@ export default defineType({
             title: "URL",
             type: "url",
         }),
+        defineField({
+            name: "description",
+            title: "Description",
+            type: "text",
+        }),
+        defineField({
+            name: "techStack",
+            title: "Tech Stack",
+            type: "text",
+        }),
     ],
 });

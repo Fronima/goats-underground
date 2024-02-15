@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import Script from "next/script";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,21 +23,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Script src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_MEASUREMENT_ID}`}/>
-      <Script id="google-analytics">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
- 
-          gtag('config', '${process.env.GA_MEASUREMENT_ID}');
-        `}
-      </Script>
-      <body className={"h-screen w-screen"}>
+      <body className={"h-full w-screen pt-10 bg-purple-400"}>
         <Header/>
         {children}
         <Footer/>
       </body>
+      <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID as string} />
     </html>
   );
 }

@@ -5,6 +5,9 @@ import imageUrlBuilder  from "@sanity/image-url";
 import { client } from "../../sanity/client";
 import { Courier_Prime } from "next/font/google";
 import { InferGetServerSidePropsType } from "next";
+import PortfolioPage from "./portfolio/page";
+import About from "./about/page";
+import ContactPage from "./contact/page";
 
 type Homepage = {
   title: string,
@@ -14,15 +17,19 @@ type Homepage = {
 
 const courier_prime = Courier_Prime({ weight: ["400"], subsets: ["latin"]});
 
+export default async function MainPage(){
+  return (
+      <Home/>
+  )
+}
 
-
-export default async  function Home() {
+export async  function Home() {
 
   const homepage:Homepage[] = await getHomepageHeader();
   const builder = imageUrlBuilder(client);
 
   return (
-    <main className="flex h-full w-full">
+    <main className="flex h-full w-full bg-white">
       <div className="h-full w-full">
         {
           homepage.map((section) => {

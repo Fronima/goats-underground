@@ -11,7 +11,7 @@ const footer_links = [
 export function Footer() {
     return (
         <footer>
-            <ul className="inline-flex">
+            <ul className="inline-flex z-20">
                 {
                     footer_links.map((link) => (
                         <li key={link.href}>
