@@ -23,7 +23,7 @@ export default async function MainPage(){
   )
 }
 
-export async  function Home() {
+async  function Home() {
 
   const homepage:Homepage[] = await getHomepageHeader();
   const builder = imageUrlBuilder(client);
