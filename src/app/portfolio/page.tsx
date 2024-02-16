@@ -26,7 +26,7 @@ export default async function PortfolioPage() {
     }) 
     
     return (
-        <main className={"bg-white min-h-screen w-full " + courier_prime.className}>
+        <main className={"bg-white h-full min-h-screen w-full " + courier_prime.className}>
             <ProjectViewer projects={projectsWithImages}/>
         </main>
     );
