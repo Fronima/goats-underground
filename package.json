@@ -1,5 +1,5 @@
 {
-  "name": "monotreme",
+  "name": "goats-underground",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,13 +12,13 @@
     "@next/third-parties": "^14.1.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/orderable-document-list": "^1.2.0",
-    "@sanity/vision": "^3.26.0",
+    "@sanity/vision": "^3.30.0",
     "gpg": "^0.6.0",
     "next": "14.1.0",
-    "next-sanity": "^7.0.17",
+    "next-sanity": "^7.1.4",
     "react": "^18",
     "react-dom": "^18",
-    "sanity": "^3.26.0",
+    "sanity": "^3.30.0",
     "styled-components": "^6.1.8"
   },
   "devDependencies": {

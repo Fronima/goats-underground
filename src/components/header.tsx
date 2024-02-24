@@ -39,16 +39,16 @@ function Nav() {
     const [openNav, setOpenNav] = useState(false);
     
     return (
-        <nav className="text-black flex flex-row h-10 items-center justify-between mr-10 md:justify-start ">
+        <nav className="text-black flex flex-row h-10 items-center justify-between mr-10 md:justify-start hidden w-full">
             <div className="ml-5 mr-10">
                 <Link href="/">
                     <Image src="/logo.svg" alt="Logo" width={200} height={50} />
                 </Link>
             </div>
-            <button className={`nav-button ${!isMobile && 'hidden'}`} onClick={()=>{
+            <button className={`nav-button pr-5 ${!isMobile && 'hidden'}`} onClick={()=>{
                 setOpenNav(!openNav);
             }}>Menu</button>
-            <ul className={`flex gap-5 my-auto rounded-xl bg-white ${!openNav && isMobile && 'hidden'} ${isMobile ? 'absolute top-8 right-2 flex-col p-4' : 'flex-row'}`}
+            <ul className={`flex gap-5 my-auto rounded-xl  ${!openNav && isMobile && 'hidden'} ${isMobile ? 'bg-purple-200 absolute top-8 right-2 flex-col p-4' : 'flex-row'}`}
                 onClick={()=> setOpenNav(false)}>
             {navItems.map((link) => (
                 <li key={link.href}>

@@ -11,15 +11,20 @@ const footer_links = [
 export function Footer() {
     return (
         <footer>
-            <ul className="inline-flex z-20">
-                {
-                    footer_links.map((link) => (
-                        <li key={link.href}>
-                            <Link href={link.href}>{link.name}</Link>
-                        </li>
-                    ))
-                }
-            </ul>
+            <div className="flex flex-col p-2 gap-1">
+                <ul className="inline-flex z-20">
+                    {
+                        footer_links.map((link) => (
+                            <li key={link.href}>
+                                <Link href={link.href}>{link.name}</Link>
+                            </li>
+                        ))
+                    }
+                </ul>
+                <div className="flex flex-row justify-center">
+                    <p>Copyright © 2024 Monotreme ®</p>
+                </div>
+            </div>
         </footer>
     );
 }

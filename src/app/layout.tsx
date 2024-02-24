@@ -4,7 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import Script from "next/script";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager, sendGTMEvent } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={"h-full w-screen pt-10 bg-purple-400"}>
+      <body className={"h-full w-full"}>
         <Header/>
         {children}
         <Footer/>
