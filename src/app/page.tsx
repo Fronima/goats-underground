@@ -110,7 +110,7 @@ async  function Home() {
             <p className="text-4xl md:text-2xl text-white font-bold">Goats Underground</p>
             <p className="text-2xl md:text-xl text-white font-bold">The Best Place to Find the Best Events</p>
           </div>
-          <span className="text-black font-bold text-right text-xl">{"Contact Us"}</span>
+          <span className="text-black font-bold text-right text-xl border border-black border-3 p-1">{"Contact Us"}</span>
         </div>
       </div>
       <div className="flex flex-col w-full h-screen bg-gu-red">

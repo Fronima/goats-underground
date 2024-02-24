@@ -9,7 +9,7 @@ import { GoogleTagManager, sendGTMEvent } from "@next/third-parties/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Monotreme",
+  title: "Goats Underground",
   description: "",
   icons: {
     icon: "/favicon.svg",
