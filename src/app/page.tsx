@@ -110,16 +110,18 @@ async  function Home() {
             <p className="text-4xl md:text-2xl text-white font-bold">Goats Underground</p>
             <p className="text-2xl md:text-xl text-white font-bold">The Best Place to Find the Best Events</p>
           </div>
-          <span className="text-black font-bold text-right text-xl border border-black border-3 p-1">{"Contact Us"}</span>
+          <div className="text-right">
+            <span className="text-black font-bold text-right text-xl border border-black border-3 p-1 ">{"Contact Us"}</span>
+          </div>
         </div>
       </div>
       <div className="flex flex-col w-full h-screen bg-gu-red">
-        <Image  className={' w-full'}
+        <Image  className={'w-full translate-y-10 scale-x-110'}
                   id="mask"
                   src={'/gu-background.svg'} 
                   width={200}  
                   height={50} 
-                  alt="Goats Underground"  
+                  alt="Goats Underground"
                   objectFit="fill" 
           />
           <div className="bg-black h-full">
@@ -127,8 +129,8 @@ async  function Home() {
           <div className="flex flex-col w-full absolute pt-32 ">
               <div className="flex flex-col gap-3 p-10">
                 <p className="text-2xl text-black font-bold text-white">{"Upcoming Events"}</p>
-                <div className="flex flex-col sm:flex-row w-full">
-                  <div className="flex flex-col bg-gu-red p-2 w-full sm:w-[8vw]">
+                <div className="flex flex-col md:flex-row w-full">
+                  <div className="flex flex-row gap-2 md:gap-0 md:flex-col bg-gu-red p-2 w-full sm:w-[8vw]">
                     <h1 className="text-3xl text-black font-bold text-white text-left ">{"FEB"}</h1>
                     <h1 className="text-3xl text-black text-black text-right ">{"14"}</h1>
                   </div>
