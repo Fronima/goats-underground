@@ -22,7 +22,7 @@ export function Footer() {
                     }
                 </ul>
                 <div className="flex flex-row justify-center">
-                    <p>Copyright © 2024 Monotreme ®</p>
+                    <p>Copyright © 2024 Goats Underground ®</p>
                 </div>
             </div>
         </footer>
