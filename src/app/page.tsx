@@ -34,8 +34,8 @@ const navItems = [
     href: "/events",
   },
   {
-    name: "Blogs",
-    href: "/blogs",
+    name: "Blog",
+    href: "/blog",
   },
   {
     name: "Photos",
@@ -52,22 +52,23 @@ async  function Home() {
 
   const homepage:Homepage[] = await getHomepageHeader();
   const builder = imageUrlBuilder(client);
+  const icon_size = "3rem";
 
   return (
     <main className="flex flex-col h-gull w-full bg-gu-red overflow-hidden">
       <div className="h-screen w-full relative">
         <div className="top-0 w-full h-full"></div>
-        <div className=" absolute top-16 md:top-[15
+        <div className=" absolute top-10 sm:top-16 md:top-[15
           vh] w-full flex items-center justify-center">
           <div className="flex flex-col md:flex-row items-center justify-center gap-10">
-            <Image  className={'w-[70vw] md:w-[30vw]'}
+            <Image  className={'w-[70vw] md:w-[30vw] lg:w-[40vw]'}
                     src={'/gu-splash-img.webp'}
                     width={500}
                     height={1000}
                     alt="Goats Underground"
                     objectFit="contain"
             />
-            <div className={"top-0 gap-3 flex flex-col justify-center text-start " + oswald.className}>
+            <div className={"top-0 md:gap-3 flex flex-col justify-center text-start " + oswald.className}>
               {
                 navItems.map((link) => (
                   <Link 
@@ -77,21 +78,21 @@ async  function Home() {
                   >{link.name}</Link>
                 ))
               }
-              <div className="flex flex-row gap-5 ">
+              <div className="flex flex-row md:gap-5 ">
                 <Link href="https://www.youtube.com/channel/UC9J6Z1v3Xy5RJYlF1i8lK5g" target="_blank" rel="noreferrer">
-                  <FaYoutube size={50} className="text-4xl text-black hover:text-white"/>
+                  <FaYoutube size={icon_size} className="text-4xl text-black hover:text-white"/>
                 </Link>
                 <Link href="https://www.facebook.com/goatsunderground" target="_blank" rel="noreferrer">
-                  <FaFacebook size={50} className="text-4xl text-black hover:text-white"/>
+                  <FaFacebook size={icon_size} className="text-4xl text-black hover:text-white"/>
                 </Link>
                 <Link href="https://www.instagram.com/goatsunderground" target="_blank" rel="noreferrer">
-                  <FaInstagram size={50} className="text-4xl text-black hover:text-white"/>
+                  <FaInstagram size={icon_size} className="text-4xl text-black hover:text-white"/>
                 </Link>
                 <Link href="https://twitter.com/goatsunderground" target="_blank" rel="noreferrer">
-                  <FaTwitter size={50} className="text-4xl text-black hover:text-white"/>
+                  <FaTwitter size={icon_size} className="text-4xl text-black hover:text-white"/>
                 </Link>
                 <Link href="https://www.tiktok.com/@goatsunderground" target="_blank" rel="noreferrer">
-                  <FaTiktok size={50} className="text-4xl text-black hover:text-white"/>
+                  <FaTiktok size={icon_size} className="text-4xl text-black hover:text-white"/>
                 </Link>
               </div> 
             </div>
@@ -104,8 +105,8 @@ async  function Home() {
             <span className="text-black font-bold">{"scroll up"}</span>
           </div>
         </div>
-        <div className="absolute bottom-0 right-0 w-[96vw] md:w-1/4 flex justify-center flex flex-col m-2">
-          <div className="flex flex-col gap-3 text-center bg-black p-3 ">
+        <div className="absolute bottom-0 right-0 md:w-1/4 flex justify-center flex flex-col p-2">
+          <div className="flex flex-col gap-3 text-center bg-black p-3  hidden">
             <p className="text-4xl md:text-2xl text-white font-bold">Goats Underground</p>
             <p className="text-2xl md:text-xl text-white font-bold">The Best Place to Find the Best Events</p>
           </div>
@@ -121,11 +122,13 @@ async  function Home() {
                   alt="Goats Underground"  
                   objectFit="fill" 
           />
+          <div className="bg-black h-full">
+          </div>
           <div className="flex flex-col w-full absolute pt-32 ">
               <div className="flex flex-col gap-3 p-10">
                 <p className="text-2xl text-black font-bold text-white">{"Upcoming Events"}</p>
-                <div className="flex flex-row w-full">
-                  <div className="flex flex-col bg-gu-red p-2 w-[8vw]">
+                <div className="flex flex-col sm:flex-row w-full">
+                  <div className="flex flex-col bg-gu-red p-2 w-full sm:w-[8vw]">
                     <h1 className="text-3xl text-black font-bold text-white text-left ">{"FEB"}</h1>
                     <h1 className="text-3xl text-black text-black text-right ">{"14"}</h1>
                   </div>
