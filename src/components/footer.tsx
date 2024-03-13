@@ -1,11 +1,12 @@
 "use client";
 import Link from "next/link";
 
-const footer_links = [
-    {
-        name: "Privacy Policy",
-        href: "/privacy-policy",
-    }
+type navItem = {
+    name: string,
+    href: string,
+}
+
+const footer_links: navItem[] = [
 ]
 
 export function Footer() {

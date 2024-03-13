@@ -5,13 +5,13 @@ import imageUrlBuilder  from "@sanity/image-url";
 import { client } from "../../sanity/client";
 import { Oswald } from "next/font/google";
 import { InferGetServerSidePropsType } from "next";
-import PortfolioPage from "./portfolio/page";
 import About from "./about/page";
 import ContactPage from "./contact/page";
 import Link from "next/link";
 import './index.css'
 import { sendGTMEvent } from "@next/third-parties/google";
 import { FaYoutube, FaFacebook, FaInstagram, FaTwitter, FaTiktok, FaArrowUp, FaCaretUp } from "react-icons/fa"
+import PopupButton from "@/components/popup-button";
 
 
 
@@ -123,18 +123,15 @@ async  function Home() {
             <span className="text-black font-bold">{"scroll up"}</span>
           </div>
         </div>
-        <div className="absolute bottom-0 right-0 md:w-1/4 flex justify-center flex flex-col p-2">
-          <div className="flex flex-col gap-3 text-center bg-black p-3  hidden">
+        <PopupButton className="absolute bottom-0 right-0 md:w-1/4 flex justify-center flex flex-col p-2" text="Contact Us">
+          <div className="flex flex-col gap-3 text-center bg-black p-3">
             <p className="text-4xl md:text-2xl text-white font-bold">Goats Underground</p>
             <p className="text-2xl md:text-xl text-white font-bold">The Best Place to Find the Best Events</p>
           </div>
-          <div className="text-right">
-            <span className="text-black font-bold text-right text-xl border border-black border-3 p-1 ">{"Contact Us"}</span>
-          </div>
-        </div>
+        </PopupButton>
       </div>
-      <div className="flex flex-col w-full h-screen bg-gu-red">
-        <Image  className={'w-full translate-y-10 scale-x-110'}
+      <div className="flex flex-col w-full min-h-screen bg-gu-red relative overflow-hidden">
+        <Image  className={'w-full translate-y-10 absolute z-0 scale-x-110'}
                   id="mask"
                   src={'/gu-background.svg'} 
                   width={200}  
@@ -142,9 +139,8 @@ async  function Home() {
                   alt="Goats Underground"
                   objectFit="fill" 
           />
-          <div className="bg-black h-full">
-          </div>
-          <div className="flex flex-col w-full absolute pt-32 ">
+          
+          <div className="flex flex-col w-full mt-40 z-10 bg-black">
               <div className="flex flex-col gap-3 p-10">
                 <p className="text-2xl text-black font-bold text-white">{"Upcoming Events"}</p>
                 {
