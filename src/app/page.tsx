@@ -172,7 +172,7 @@ async  function Home() {
                   landingPageSecion.map((section) => {
                     return (
                       <div key={section.title} className="flex flex-col md:flex-row w-full">
-                        <div className="flex flex-col gap-3 border border-gu-red border-4 w-full p-1 pr-2">
+                        <div className="flex flex-col gap-3  w-full p-1 pr-2">
                           <h2 className="text-xl text-black font-bold text-white">{section.title}</h2>
                           <p className="text-black font-bold text-white">{section.description}</p>
                         </div>
