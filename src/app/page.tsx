@@ -148,18 +148,17 @@ async  function Home() {
                     return (
                       <div key={event.name} className="flex flex-col md:flex-row w-full">
                         <div className="flex flex-row gap-2 md:gap-0 md:flex-col bg-gu-red p-2 w-full sm:w-[8vw]">
-                          <h1 className="text-3xl text-black font-bold text-white text-left ">{date.getMonth()}</h1>
+                          <h1 className="text-3xl text-black font-bold text-white text-left ">{date.toLocaleString('default', {month: "short"}).toUpperCase()}</h1>
                           <h1 className="text-3xl text-black text-black text-right ">{date.getDay()}</h1>
                         </div>
                         <div className="flex flex-col gap-3 border border-gu-red border-4 w-full p-1 pr-2">
-                          <h2 className="text-xl text-black font-bold text-white">{"Event Name"}</h2>
-                          <p className="text-black font-bold text-white">{"event details"}</p>
+                          <h2 className="text-xl text-black font-bold text-white">{event.name}</h2>
+                          <p className="text-black font-bold text-white">{event.description}</p>
                         </div>
                       </div>
                     )
                   })
                 }
-                <p className="text-2xl text-black font-bold text-white">{"Past Events"}</p>
               </div>
           </div>
       </div>
