@@ -43,6 +43,20 @@ export async function getHomepageHeader() {
     })
 }
 
+export async function getEvents() {
+    return await sanityFetch({
+        query:`*[_type == "event"]`,
+        tags: ['event']
+    })
+}
+
+export async function getLandingpageSection() {
+    return await sanityFetch({
+        query:`*[_type == "landingPageSection"]`,
+        tags: ['landingPageSection']
+    })
+}
+
 export async function getContact() {
     return await sanityFetch({
         query:`*[_type == "contact"]`,

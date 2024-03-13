@@ -1,6 +1,6 @@
 
 import Image from "next/image";
-import { getHomepageHeader } from "../../sanity/client";
+import { getHomepageHeader, getEvents } from "../../sanity/client";
 import imageUrlBuilder  from "@sanity/image-url";
 import { client } from "../../sanity/client";
 import { Oswald } from "next/font/google";
@@ -14,9 +14,17 @@ import { sendGTMEvent } from "@next/third-parties/google";
 import { FaYoutube, FaFacebook, FaInstagram, FaTwitter, FaTiktok, FaArrowUp, FaCaretUp } from "react-icons/fa"
 
 
+
 type Homepage = {
   title: string,
   description: string,
+  image: string,
+}
+
+type Event = {
+  name: string,
+  description: string,
+  date: string,
   image: string,
 }
 
@@ -53,6 +61,9 @@ async  function Home() {
   const homepage:Homepage[] = await getHomepageHeader();
   const builder = imageUrlBuilder(client);
   const icon_size = "3rem";
+
+  const events:Event[] = await getEvents();
+
 
   return (
     <main className="flex flex-col h-gull w-full bg-gu-red overflow-hidden">
@@ -129,16 +140,25 @@ async  function Home() {
           <div className="flex flex-col w-full absolute pt-32 ">
               <div className="flex flex-col gap-3 p-10">
                 <p className="text-2xl text-black font-bold text-white">{"Upcoming Events"}</p>
-                <div className="flex flex-col md:flex-row w-full">
-                  <div className="flex flex-row gap-2 md:gap-0 md:flex-col bg-gu-red p-2 w-full sm:w-[8vw]">
-                    <h1 className="text-3xl text-black font-bold text-white text-left ">{"FEB"}</h1>
-                    <h1 className="text-3xl text-black text-black text-right ">{"14"}</h1>
-                  </div>
-                  <div className="flex flex-col gap-3 border border-gu-red border-4 w-full p-1 pr-2">
-                    <h2 className="text-xl text-black font-bold text-white">{"Event Name"}</h2>
-                    <p className="text-black font-bold text-white">{"event details"}</p>
-                  </div>
-                </div>
+                {
+                  events.filter(
+                    (event) => new Date(event.date) > new Date()
+                  ).map((event) => {
+                    const date = new Date(event.date);
+                    return (
+                      <div key={event.name} className="flex flex-col md:flex-row w-full">
+                        <div className="flex flex-row gap-2 md:gap-0 md:flex-col bg-gu-red p-2 w-full sm:w-[8vw]">
+                          <h1 className="text-3xl text-black font-bold text-white text-left ">{date.getMonth()}</h1>
+                          <h1 className="text-3xl text-black text-black text-right ">{date.getDay()}</h1>
+                        </div>
+                        <div className="flex flex-col gap-3 border border-gu-red border-4 w-full p-1 pr-2">
+                          <h2 className="text-xl text-black font-bold text-white">{"Event Name"}</h2>
+                          <p className="text-black font-bold text-white">{"event details"}</p>
+                        </div>
+                      </div>
+                    )
+                  })
+                }
                 <p className="text-2xl text-black font-bold text-white">{"Past Events"}</p>
               </div>
           </div>
