@@ -155,7 +155,7 @@ async  function Home() {
                           <h1 className="text-3xl text-black font-bold text-white text-left ">{date.toLocaleString('default', {month: "short"}).toUpperCase()}</h1>
                           <h1 className="text-3xl text-black text-black text-right ">{date.toLocaleString('default', {day: '2-digit'})}</h1>
                         </div>
-                        <div className="flex flex-col gap-3 border border-gu-red border-4 w-full p-1 pr-2">
+                        <div className="flex flex-col gap-3 border border-gu-red border-4 w-full p-1 px-2">
                           <h2 className="text-xl text-black font-bold text-white">{event.name}</h2>
                           <p className="text-black font-bold text-white">{event.description}</p>
                         </div>
