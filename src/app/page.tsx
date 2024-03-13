@@ -1,6 +1,6 @@
 
 import Image from "next/image";
-import { getHomepageHeader, getEvents } from "../../sanity/client";
+import { getHomepageHeader, getEvents, getLandingpageSection } from "../../sanity/client";
 import imageUrlBuilder  from "@sanity/image-url";
 import { client } from "../../sanity/client";
 import { Oswald } from "next/font/google";
@@ -25,6 +25,12 @@ type Event = {
   name: string,
   description: string,
   date: string,
+  image: string,
+}
+
+type LandingPageSection = {
+  title: string,
+  description: string,
   image: string,
 }
 
@@ -63,6 +69,7 @@ async  function Home() {
   const icon_size = "3rem";
 
   const events:Event[] = await getEvents();
+  const landingPageSecion:LandingPageSection[] = await getLandingpageSection();
 
 
   return (
@@ -154,6 +161,20 @@ async  function Home() {
                         <div className="flex flex-col gap-3 border border-gu-red border-4 w-full p-1 pr-2">
                           <h2 className="text-xl text-black font-bold text-white">{event.name}</h2>
                           <p className="text-black font-bold text-white">{event.description}</p>
+                        </div>
+                      </div>
+                    )
+                  })
+                }
+              </div>
+              <div className="flex flex-col gap-3 p-10">
+                {
+                  landingPageSecion.map((section) => {
+                    return (
+                      <div key={section.title} className="flex flex-col md:flex-row w-full">
+                        <div className="flex flex-col gap-3 border border-gu-red border-4 w-full p-1 pr-2">
+                          <h2 className="text-xl text-black font-bold text-white">{section.title}</h2>
+                          <p className="text-black font-bold text-white">{section.description}</p>
                         </div>
                       </div>
                     )
