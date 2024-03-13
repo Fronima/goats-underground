@@ -104,9 +104,10 @@ async  function Home() {
                   <FaFacebook size={icon_size} className="text-4xl text-black hover:text-white"/>
                 </Link>
                 <Link href="https://www.instagram.com/goatsunderground" target="_blank" rel="noreferrer">
-                  <FaInstagram size={icon_size} className="text-4xl text-black hover:text-white"/>
+                  <FaInstagram size={icon_size} className="text-4xl text-black hover:text-white "/>
                 </Link>
-                <Link href="https://twitter.com/goatsunderground" target="_blank" rel="noreferrer">
+                <Link href="https://twitter.com/goatsunderground" target="_blank" rel="noreferrer" 
+                  className="hover:after:content-['twitter_will_never_die'] after:absolute after:-ml-10">
                   <FaTwitter size={icon_size} className="text-4xl text-black hover:text-white"/>
                 </Link>
                 <Link href="https://www.tiktok.com/@goatsunderground" target="_blank" rel="noreferrer">
