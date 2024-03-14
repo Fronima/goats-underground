@@ -13,6 +13,7 @@ import { sendGTMEvent } from "@next/third-parties/google";
 import { FaYoutube, FaFacebook, FaInstagram, FaTwitter, FaTiktok, FaArrowUp, FaCaretUp } from "react-icons/fa"
 import PopupButton from "@/components/popup-button";
 import GoatSplashSVG from "@/components/goat-splash";
+import SiteConfig from "@/config";
 
 
 
@@ -83,10 +84,10 @@ async  function Home() {
           vh] w-full flex items-center justify-center">
           <div className="flex flex-col md:flex-row items-center justify-center gap-10">
             
-            <GoatSplashSVG className="w-[70vw] md:w-[30vw] lg:w-[42vw]"/>
+            <GoatSplashSVG className="w-[70vw] lg:w-[40vw] h-[50vh] sm:h-[40vh] md:h-[30vh] lg:h-[70vh]"/>
             <div className={"top-0 md:gap-3 flex flex-col justify-center text-start " + oswald.className}>
               {
-                navItems.map((link) => (
+                SiteConfig.navItems.map((link) => (
                   <Link 
                     className={`text-black text-[8vw] md:text-[3vw] font-extrabold  hover:text-white hover:pl-1 transition ease-in-out duration-300 after:mix-blend-plus-lighter`}
                     key={link.href}

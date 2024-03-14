@@ -43,6 +43,15 @@ export async function getHomepageHeader() {
     })
 }
 
+export type Event = {
+    name: string,
+    description: string,
+    date: string,
+    image: string,
+    location: string,
+    link: string,
+  }
+
 export async function getEvents() {
     return await sanityFetch({
         query:`*[_type == "event"]`,

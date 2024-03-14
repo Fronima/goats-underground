@@ -9,13 +9,17 @@ export default function GoatSplashSVG({className = ""}:{className?: string}) {
   const shadow = "shadow-lg"
   return (
     <div className={`relative ${className}`}>
-      <Image
-        src="/goats-head.webp"
-        alt="Goats Underground"
-        className="absolute"
-        width={963}
-        height={1237}
-      />
+      <div className="absolute w-full h-full">
+        <div className="relative w-full h-[78%]">
+          <Image
+            src="/goats-head.webp"
+            alt="Goats Underground"
+            className="absolute object-contain"
+            fill={true}
+            
+          />
+        </div>
+      </div>
       <svg
       width="100%"
       height="100%"
