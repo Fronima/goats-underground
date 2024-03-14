@@ -12,6 +12,7 @@ import './index.css'
 import { sendGTMEvent } from "@next/third-parties/google";
 import { FaYoutube, FaFacebook, FaInstagram, FaTwitter, FaTiktok, FaArrowUp, FaCaretUp } from "react-icons/fa"
 import PopupButton from "@/components/popup-button";
+import GoatSplashSVG from "@/components/goat-splash";
 
 
 
@@ -26,6 +27,8 @@ type Event = {
   description: string,
   date: string,
   image: string,
+  location: string,
+  link: string,
 }
 
 type LandingPageSection = {
@@ -79,13 +82,8 @@ async  function Home() {
         <div className=" absolute top-10 sm:top-16 md:top-[15
           vh] w-full flex items-center justify-center">
           <div className="flex flex-col md:flex-row items-center justify-center gap-10">
-            <Image  className={'w-[70vw] md:w-[30vw] lg:w-[40vw]'}
-                    src={'/gu-splash-img.webp'}
-                    width={500}
-                    height={1000}
-                    alt="Goats Underground"
-                    objectFit="contain"
-            />
+            
+            <GoatSplashSVG className="w-[70vw] md:w-[30vw] lg:w-[42vw]"/>
             <div className={"top-0 md:gap-3 flex flex-col justify-center text-start " + oswald.className}>
               {
                 navItems.map((link) => (
@@ -131,7 +129,8 @@ async  function Home() {
           </div>
         </PopupButton>
       </div>
-      <div className="flex flex-col w-full min-h-screen bg-gu-red relative overflow-hidden">
+      <div className="flex flex-col w-full min-h-screen bg-black relative overflow-hidden">
+        <div className="h-1/3 w-full bg-gu-red absolute" ></div>
         <Image  className={'w-full translate-y-10 absolute z-0 scale-x-110'}
                   id="mask"
                   src={'/gu-background.svg'} 
@@ -141,7 +140,7 @@ async  function Home() {
                   objectFit="fill" 
           />
           
-          <div className="flex flex-col w-full mt-40 z-10 bg-black">
+          <div className="flex flex-col w-full mt-40 z-10 bg-black h-full">
               <div className="flex flex-col gap-3 p-10">
                 <p className="text-2xl text-black font-bold text-white">{"Upcoming Events"}</p>
                 {
@@ -155,16 +154,22 @@ async  function Home() {
                           <h1 className="text-3xl text-black font-bold text-white text-left ">{date.toLocaleString('default', {month: "short"}).toUpperCase()}</h1>
                           <h1 className="text-3xl text-black text-black text-right ">{date.toLocaleString('default', {day: '2-digit'})}</h1>
                         </div>
-                        <div className="flex flex-col gap-3 border border-gu-red border-4 w-full p-1 px-2">
+                        <div className="flex flex-col gap-2 border border-gu-red border-4 w-full p-1 px-2">
                           <h2 className="text-xl text-black font-bold text-white">{event.name}</h2>
+                          {event.location && <p className="text-black text-white">{event.location}</p>}
                           <p className="text-black font-bold text-white">{event.description}</p>
+                          {event.link && 
+                          <Link href={event.link}>
+                            {"Get Tickets"}
+                          </Link>
+                          }
                         </div>
                       </div>
                     )
                   })
                 }
               </div>
-              <div className="flex flex-col gap-3 p-10">
+              <div className="flex flex-col gap-3 p-10 h-full">
                 {
                   landingPageSecion.map((section) => {
                     return (

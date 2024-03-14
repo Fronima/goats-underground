@@ -25,5 +25,15 @@ export default defineType({
             title: "Image",
             type: "image",
         },
+        {
+            name: "location",
+            title: "Location",
+            type: "string",
+        },
+        {
+            name: "link",
+            title: "Link",
+            type: "url",
+        }
     ],
 });
