@@ -4,7 +4,7 @@ import { client } from "../../../sanity/client"
 import Link from "next/link"
 import Image from "next/image"
 
-export function BannerEvent({event}: {event: Event}){
+function BannerEvent({event}: {event: Event}){
     const date = new Date(event.date)
     return (
         <div className="flex flex-col md:flex-row w-full">
@@ -26,7 +26,7 @@ export function BannerEvent({event}: {event: Event}){
     )
 }
 
-export function PictureEvent({event}: {event: Event}){
+function PictureEvent({event}: {event: Event}){
     //TODO: Add a paraax effect to the image
     const builder = imageUrlBuilder(client);
     const date = new Date(event.date)
@@ -52,7 +52,7 @@ export function PictureEvent({event}: {event: Event}){
     )
 }
 
-export function Event({event}: {event: Event}){
+function Event({event}: {event: Event}){
     
     return (
         event.image ?
