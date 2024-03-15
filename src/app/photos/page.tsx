@@ -8,7 +8,7 @@ export default async function Photos(){
         photos.push({
             src: `https://picsum.photos/id/${i}/300/300`,
             width: 3,
-            height: 4
+            height: 3
         })
     }
     photos = photos1.length > 0 ? photos1 : photos
