@@ -15,9 +15,11 @@ export default async function Collaborators(){
                     collaborators.map((collaborator) => (
                         <div key={collaborator.name} className="flex flex-col items-center justify-center p-4">
                             <img src={collaborator.image} alt={collaborator.name} className="w-32 h-32 rounded-full"/>
+                            {collaborator.link &&
                             <Link href={collaborator.link}>
                                 <h1 className="text-center text-xl font-bold">{collaborator.name}</h1>
                             </Link>
+                            }
                         </div>
                     ))
                 }
