@@ -13,6 +13,7 @@
     "@sanity/image-url": "^1.0.2",
     "@sanity/orderable-document-list": "^1.2.0",
     "@sanity/vision": "^3.30.0",
+    "@vercel/analytics": "^1.2.2",
     "fa-icons": "^0.2.0",
     "framer-motion": "^11.0.6",
     "gpg": "^0.6.0",

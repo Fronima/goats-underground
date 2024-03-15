@@ -47,17 +47,17 @@ export function PictureEvent({event}: {event: Event}){
                 <div className="h-full"></div>
             </div>
             </div>
-            <Image src={"https://picsum.photos/800"} fill={true} alt="event image" className="object-cover z-0" />
+            <Image src={builder.image(event.image).url()} fill={true} alt="event image" className="object-cover z-0" />
         </div>
     )
 }
 
 export function Event({event}: {event: Event}){
+    
     return (
-        <>
-        <BannerEvent event={event} />
-        <PictureEvent event={event} />
-        </>
+        event.image ?
+            <PictureEvent event={event} /> :
+            <BannerEvent event={event} />
     )
 }
 

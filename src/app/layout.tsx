@@ -5,6 +5,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import Script from "next/script";
 import { GoogleTagManager, sendGTMEvent } from "@next/third-parties/google";
+import { Analytics } from '@vercel/analytics/react'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default function RootLayout({
         <Footer/>
       </body>
       <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID as string} />
+      <Analytics/>
     </html>
   );
 }

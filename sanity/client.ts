@@ -73,3 +73,47 @@ export async function getContact() {
     })
 }
 
+export type Collaborator = {
+    name: string,
+    description: string,
+    image: string,
+    link: string,
+  }
+
+export async function getCollaborators() {
+    return await sanityFetch({
+        query:`*[_type == "collaborator"]`,
+        tags: ['collaborator']
+    })
+}
+
+export type Photo = {
+    title: string,
+    description: string,
+    image: string,
+  }
+
+export async function getPhotos() {
+    return await sanityFetch({
+        query:`*[_type == "photo"]`,
+        tags: ['photo']
+    })
+}
+
+export type Blog = {
+    title: string,
+    description: string,
+    image: string,
+    date: string,
+    author: string,
+    content: string[],
+}
+
+export async function getBlog() {
+    return await sanityFetch({
+        query:`*[_type == "blog"]`,
+        tags: ['blog']
+    })
+}
+
+

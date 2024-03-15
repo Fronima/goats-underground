@@ -1,22 +1,26 @@
 import Link from "next/link"
+import { getCollaborators, Collaborator } from "../../../sanity/client"
 
 
 
-export default function Collaborators(){
+import React from "react"; // Import the React module
+
+export default async function Collaborators(){
+    const collaborators: Collaborator[] = await getCollaborators()
+
     return (
         <div className="min-h-screen pt-20">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                <div className="text-center flex flex-col">
-                    <div>
-                        <div className="aspect-square relative h-[30vh] bg-blue mx-auto">
-                            <img src="https://picsum.photos/200/300" alt="collaborator" className="object-cover w-full h-full" />
+                {
+                    collaborators.map((collaborator) => (
+                        <div key={collaborator.name} className="flex flex-col items-center justify-center p-4">
+                            <img src={collaborator.image} alt={collaborator.name} className="w-32 h-32 rounded-full"/>
+                            <Link href={collaborator.link}>
+                                <h1 className="text-center text-xl font-bold">{collaborator.name}</h1>
+                            </Link>
                         </div>
-                    </div>
-                    
-                    <Link href="/collaborators/1">
-                        <h2 className="text-xl font-bold">Collaborator Name</h2>
-                    </Link>
-                </div>
+                    ))
+                }
             </div>
         </div>
     )
