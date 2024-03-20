@@ -29,7 +29,7 @@ export default async function Blog() {
         {
           blogs.map((blog) => {
             return (
-              <BlogPost className='' title={blog.title} summary={blog.description}/>
+              <BlogPost key={blog.title} className='' title={blog.title} summary={blog.description}/>
             )
           })
         }
