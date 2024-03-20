@@ -15,7 +15,7 @@
     "@sanity/vision": "^3.30.0",
     "@vercel/analytics": "^1.2.2",
     "fa-icons": "^0.2.0",
-    "framer-motion": "^11.0.6",
+    "framer-motion": "^11.0.14",
     "gpg": "^0.6.0",
     "next": "14.1.0",
     "next-sanity": "^7.1.4",

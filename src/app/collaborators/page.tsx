@@ -14,7 +14,7 @@ export default async function Collaborators(){
 
     return (
         <div className="min-h-screen pt-20">
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
                 {
                     collaborators.map((collaborator) => (
                         <div key={collaborator.name} className="flex flex-col items-center justify-center p-4">

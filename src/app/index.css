@@ -3,3 +3,8 @@
     color: white;
     mask-image: url(../../public/gu-background.svg);
 }
+
+.front-page{
+    background: rgb(2,0,36);
+    background: linear-gradient(20deg, rgba(2,0,36,1) 0%, rgba(255,0,0,1) 100%);    
+}

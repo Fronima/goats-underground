@@ -1,5 +1,6 @@
 import blogBlackground from '../../../public/blog-background.png';
 import Image from 'next/image';
+import { getAllBlogs, Blog } from '../../../sanity/client';
 
 
 function BlogPost({className, title, subtitle, summary} : {className?: string, title: string, subtitle?: string, summary: string}){
@@ -19,11 +20,19 @@ function BlogPost({className, title, subtitle, summary} : {className?: string, t
 
 }
 
-export default function Blog() {
+export default async function Blog() {
+  const blogs:Blog[] = await getAllBlogs();
   return (
     <div className={`min-h-screen`}>
       <h1>Blog</h1>
       <div className={`${"grid gap-3 grid-cols-1  md:grid-cols-2 lg:grid-cols-3 pt-10" }`}>
+        {
+          blogs.map((blog) => {
+            return (
+              <BlogPost className='' title={blog.title} summary={blog.description}/>
+            )
+          })
+        }
         <BlogPost className='' title="Blog Post 1" summary={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}/>
         <BlogPost className='' title="Blog Post 2" summary='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices in iaculis nunc sed augue lacus viverra vitae congue. Gravida in fermentum et sollicitudin ac orci. Orci sagittis eu volutpat odio facilisis mauris. Integer vitae justo eget magna fermentum iaculis eu non. Tortor posuere ac ut consequat semper viverra. Tortor consequat id porta nibh venenatis. Amet justo donec enim diam vulputate ut. Ultrices sagittis orci a scelerisque purus semper eget. Lectus arcu bibendum at varius vel pharetra. Egestas integer eget aliquet nibh praesent tristique magna sit amet. A cras semper auctor neque. Ullamcorper eget nulla facilisi etiam dignissim diam quis. Tincidunt augue interdum velit euismod in.
 

@@ -109,7 +109,7 @@ export type Blog = {
     content: string[],
 }
 
-export async function getBlog() {
+export async function getAllBlogs() {
     return await sanityFetch({
         query:`*[_type == "blog"]`,
         tags: ['blog']

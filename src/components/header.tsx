@@ -13,7 +13,7 @@ const oswald = Oswald({ weight: ["700"], subsets: ["latin"]});
 
 export function Header() {
     return (
-        <header className={"fixed top-0 w-full bg-gu-red z-30 " + oswald.className}>
+        <header className={"fixed top-0 w-full bg-gradient-to-r from-gu-red to-red-900 z-30 " + oswald.className}>
             <Nav/>
         </header>
     );

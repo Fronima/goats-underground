@@ -1,6 +1,7 @@
-
+"use client";
 import Image from "next/image";
 import { Oswald } from "next/font/google";
+import { motion } from "framer-motion";
 //import image from "../../../public/gu-splash-img.webp";
 
 const oswald = Oswald({ weight: ["700"], subsets: ["latin"] });
@@ -8,7 +9,7 @@ const oswald = Oswald({ weight: ["700"], subsets: ["latin"] });
 export default function GoatSplashSVG({className = ""}:{className?: string}) {
   const shadow = "shadow-lg"
   return (
-    <div className={`relative ${className}`}>
+    <motion.div className={`relative ${className}`} animate={{y: 10}} transition={{duration: 1}}>
       <div className="absolute w-full h-full">
         <div className="relative w-full h-[78%]">
           <Image
@@ -210,7 +211,7 @@ export default function GoatSplashSVG({className = ""}:{className?: string}) {
         
       </defs>
     </svg>
-    </div>
+    </motion.div>
     
   );
 }
