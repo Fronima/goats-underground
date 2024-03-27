@@ -1,3 +1,6 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 .nav-text{
     color: white;
@@ -6,5 +9,16 @@
 
 .front-page{
     background: rgb(2,0,36);
-    background: linear-gradient(20deg, rgba(2,0,36,1) 0%, rgba(255,0,0,1) 100%);    
+    background: linear-gradient(20deg, rgba(2,0,36,1) 0%, theme(colors.gu-brand.begin) 100%);    
 }
+
+.front-page-yellow{
+    background: rgb(2,0,36);
+    background: linear-gradient(20deg, rgba(2,0,36,1) 0%, #ffd346 100%);  
+}
+
+
+.brand-color-{
+    background: linear-gradient(20deg, rgba(2,0,36,1) 0%, theme(colors.gu-brand.DEFAULT) 100%);  
+}
+

@@ -77,15 +77,15 @@ async  function Home() {
 
 
   return (
-    <main className="flex flex-col h-gull w-full bg-gu-red overflow-hidden front-page">
+    <main className="flex flex-col h-gull w-full overflow-hidden front-page">
       <div className="h-screen w-full relative">
         <div className="top-0 w-full h-full"></div>
         <div className=" absolute top-10 sm:top-16 md:top-[15
           vh] w-full flex items-center justify-center">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-10">
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-10">
             
-            <GoatSplashSVG className="w-[70vw] lg:w-[40vw] h-[50vh] sm:h-[40vh] md:h-[30vh] lg:h-[70vh]"/>
-            <div className={"top-0 md:gap-3 flex flex-col justify-center text-start " + oswald.className}>
+            <GoatSplashSVG className="w-[70vw] lg:w-[40vw] h-[50vh] sm:h-[40vh]  lg:h-[70vh]"/>
+            <div className={"top-0  md:gap-3 flex flex-col justify-center text-start " + oswald.className}>
               {
                 SiteConfig.navItems.map((link) => (
                   <Link 
@@ -150,12 +150,12 @@ async  function Home() {
                   ).map((event) => {
                     const date = new Date(event.date);
                     return (
-                      <div key={event.name} className="flex flex-col md:flex-row w-full">
-                        <div className="flex flex-row gap-2 md:gap-0 md:flex-col bg-gradient-to-r from-red-800 to-red-900 p-2 w-full sm:w-[8vw]">
+                      <div key={event.name} className="flex flex-col md:flex-row w-full bg-gradient-to-r from-gu-brand-begin to-gu-brand-end p-2 gap-2">
+                        <div className="flex flex-row gap-2 md:gap-0 md:flex-col w-full sm:w-[8vw]">
                           <h1 className="text-3xl text-black font-bold text-white text-left ">{date.toLocaleString('default', {month: "short"}).toUpperCase()}</h1>
                           <h1 className="text-3xl text-black text-black text-right ">{date.toLocaleString('default', {day: '2-digit'})}</h1>
                         </div>
-                        <div className="flex flex-col gap-2 border border-red-900 border-4 w-full p-1 px-2">
+                        <div className="flex flex-col gap-2 bg-black w-full p-1 px-2">
                           <h2 className="text-xl text-black font-bold text-white">{event.name}</h2>
                           {event.location && <p className="text-black text-white">{event.location}</p>}
                           <p className="text-black font-bold text-white">{event.description}</p>
@@ -176,7 +176,7 @@ async  function Home() {
                     return (
                       <div key={section.title} className="flex flex-col md:flex-row w-full">
                         <div className="flex flex-col gap-3  w-full p-1 pr-2">
-                          <h2 className="text-xl text-black font-bold text-red-600">{section.title}</h2>
+                          <h2 className="text-xl text-black font-bold text-gu-brand-begin">{section.title}</h2>
                           <p className="text-black font-bold text-white">{section.description}</p>
                         </div>
                       </div>

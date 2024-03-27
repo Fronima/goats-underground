@@ -5,6 +5,7 @@ import { Oswald } from "next/font/google";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import './header.css';
+import '../app/index.css';
 import useWindowSize from "@/lib/hooks/useWindowSize";
 import { usePathname } from "next/navigation";
 import SiteConfig from "@/config";
@@ -13,7 +14,7 @@ const oswald = Oswald({ weight: ["700"], subsets: ["latin"]});
 
 export function Header() {
     return (
-        <header className={"fixed top-0 w-full bg-gradient-to-r from-gu-red to-red-900 z-30 " + oswald.className}>
+        <header className={"fixed top-0 w-full bg-gradient-to-r from-gu-brand-begin to-gu-brand-end z-30 " + oswald.className}>
             <Nav/>
         </header>
     );
@@ -39,7 +40,7 @@ function Nav() {
             <button className={`nav-button pr-5 ${!isMobile && 'hidden'}`} onClick={()=>{
                 setOpenNav(!openNav);
             }}>Menu</button>
-            <ul className={`flex gap-5 my-auto pl-4 animate ${!openNav && isMobile && 'hidden'} ${isMobile ? 'bg-gu-red absolute top-8 right-2 flex-col p-4' : 'flex-row'}`}
+            <ul className={`flex gap-5 my-auto pl-4 animate ${!openNav && isMobile && 'hidden'} ${isMobile ? 'bg-gu-brand-end absolute top-8 right-2 flex-col p-4' : 'flex-row'}`}
                 onClick={()=> setOpenNav(false)}>
             {SiteConfig.navItems.map((link) => (
                 <li key={link.href}>

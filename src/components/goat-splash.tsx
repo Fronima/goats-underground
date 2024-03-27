@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { Oswald } from "next/font/google";
 import { motion } from "framer-motion";
+import "../app/index.css";
 //import image from "../../../public/gu-splash-img.webp";
 
 const oswald = Oswald({ weight: ["700"], subsets: ["latin"] });
@@ -53,13 +54,13 @@ export default function GoatSplashSVG({className = ""}:{className?: string}) {
           <g transform="matrix(1.93113,0,0,1.93113,82.4727,-128.647)">
             <g transform="matrix(0.988475,0,0,1,-250.032,552.88)">
               <rect
+              className="fill-gu-brand"
                 x={370.455}
                 y={59.837}
                 width={374.17}
                 height={126.519}
                 
                 style={{
-                  fill: "rgb(255,0,0)",
                   stroke: "rgb(0,0,0)",
                   strokeWidth: 0.47,
                 }}
