@@ -24,7 +24,7 @@ export default async function Blog() {
   const blogs:Blog[] = await getAllBlogs();
   return (
     <div className={`min-h-screen`}>
-      <h1>Blog</h1>
+      
       <div className={`${"grid gap-3 grid-cols-1  md:grid-cols-2 lg:grid-cols-3 pt-10" }`}>
         {
           blogs.map((blog) => {

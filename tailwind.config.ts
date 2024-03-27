@@ -8,11 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        "wide": { "raw": "screen and (device-aspect-ratio: 16/9)" },
+        "landscape": { "raw": "(orientation: landscape)" },
+      },
       colors: {
         "gu-red": "#ff0000",
         "gu-yellow": "#ffd349",
         "gu-brand": {
-          DEFAULT: "#ffd349",
+          DEFAULT: "#ffc200",
           begin: "#ffc200",
           end: "#ffa600",
           header: "#ffedb4",
