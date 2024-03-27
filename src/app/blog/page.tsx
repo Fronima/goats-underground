@@ -7,7 +7,7 @@ function BlogPost({className, title, subtitle, summary} : {className?: string, t
     return(
         <div className={`m-4 ${className}`}>
             <div className='relative h-fit w-full m-2'>
-                <div className='z-10 p-10'>
+                <div className='z-10 p-10 break-inside-avoid'>
                     <h1 className="text-4xl text-black font-bold">{title}</h1>
                     <p className="text-2xl font-bold text-black">{"This is a blog post about goats"}</p>
                     <p className="text-black">{summary}</p>
@@ -25,11 +25,11 @@ export default async function Blog() {
   return (
     <div className={`min-h-screen`}>
       
-      <div className={`${"grid gap-3 grid-cols-1  md:grid-cols-2 lg:grid-cols-3 pt-10" }`}>
+      <div className={`${" columns-1  md:columns-2 lg:columns-3 mt-20" }`}>
         {
           blogs.map((blog) => {
             return (
-              <BlogPost key={blog.title} className='' title={blog.title} summary={blog.description}/>
+              <BlogPost className={""} key={blog.title} title={blog.title} summary={blog.description}/>
             )
           })
         }

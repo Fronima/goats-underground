@@ -66,6 +66,14 @@ export async function getLandingpageSection() {
     })
 }
 
+export type Contact = {
+    title: string,
+    description: string,
+    email: string,
+    phone: string,
+    address: string,
+  }
+
 export async function getContact() {
     return await sanityFetch({
         query:`*[_type == "contact"]`,

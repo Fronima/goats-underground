@@ -1,6 +1,6 @@
 
 import Image from "next/image";
-import { getHomepageHeader, getEvents, getLandingpageSection } from "../../sanity/client";
+import { getHomepageHeader, getEvents, getLandingpageSection, getContact, Contact } from "../../sanity/client";
 import imageUrlBuilder  from "@sanity/image-url";
 import { client } from "../../sanity/client";
 import { Oswald } from "next/font/google";
@@ -72,6 +72,7 @@ async  function Home() {
   const builder = imageUrlBuilder(client);
   const icon_size = "3rem";
 
+  const contact:Contact[] = await getContact();
   const events:Event[] = await getEvents();
   const landingPageSecion:LandingPageSection[] = await getLandingpageSection();
 
@@ -123,10 +124,20 @@ async  function Home() {
             <span className="text-black font-bold">{"scroll up"}</span>
           </div>
         </div>
-        <PopupButton className="absolute bottom-0 right-0 md:w-1/4 flex justify-center flex flex-col p-2" text="Contact Us">
+        <PopupButton className="absolute bottom-0 right-0 md:w-1/4 flex justify-center flex flex-col p-2 gap-2" text="Contact Us">
           <div className="flex flex-col gap-3 text-center bg-black p-3">
-            <p className="text-4xl md:text-2xl text-white font-bold">Goats Underground</p>
-            <p className="text-2xl md:text-xl text-white font-bold">The Best Place to Find the Best Events</p>
+            {
+              contact.map((contact) => {
+                return (
+                  <div key={contact.title} className="flex flex-col gap-2">
+                    {contact.title && <h2 className="text-xl text-black font-bold text-white">{contact.title}</h2>}
+                    {contact.description && <p className="text-black font-bold text-white">{contact.description}</p>}
+                    {contact.email && <a href={`mailto:${contact.email}`} className="text-black font-bold text-gu-brand">{contact.email}</a>}
+                    {contact.phone && <a href={`tel:${contact.phone}`} className="text-black font-bold text-gu-brand">{contact.phone}</a>}
+                  </div>
+                )
+              })
+            }
           </div>
         </PopupButton>
       </div>
