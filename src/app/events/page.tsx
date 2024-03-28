@@ -17,7 +17,7 @@ function BannerEvent({event}: {event: Event}){
                 {event.location && <p className="text-black text-white">{event.location}</p>}
                 <p className="text-black font-bold text-white">{event.description}</p>
                 {event.link && 
-                <Link href={event.link}>
+                <Link className="bg-gu-brand w-fit px-1" href={event.link}>
                 {"Get Tickets"}
                 </Link>
                 }
@@ -43,7 +43,7 @@ function PictureEvent({event}: {event: Event}){
                     {event.location && <p className="text-black text-white">{event.location}</p>}
                     <p className="text-black font-bold text-white">{event.description}</p>
                     {event.link && 
-                    <Link className="border border-2 border-gu-brand w-fit p-1" href={event.link}>
+                    <Link className="bg-gu-brand w-fit px-1" href={event.link}>
                     {"Get Tickets"}
                     </Link>
                     }

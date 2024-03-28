@@ -13,7 +13,7 @@ export default function PopupButton( {className, text, children} : {className: s
               setShowPopup(!showPopup);
             }
           }>
-            <span className="text-black font-bold text-right text-xl border border-black border-3 p-1 hover:bg-white ">{text}</span>
+            <span className="text-black font-bold text-right text-xl bg-gu-brand p-1 hover:bg-white ">{text}</span>
           </button>
     </div>
   );

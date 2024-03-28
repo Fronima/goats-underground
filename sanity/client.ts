@@ -115,11 +115,20 @@ export type Blog = {
     date: string,
     author: string,
     content: string[],
+    slug: any,
 }
 
 export async function getAllBlogs() {
     return await sanityFetch({
         query:`*[_type == "blog"]`,
+        tags: ['blog']
+    })
+}
+
+export async function getBlog(slug: string) {
+    return await sanityFetch({
+        query:`*[_type == "blog" && slug.current == $slug]`,
+        params: {slug},
         tags: ['blog']
     })
 }

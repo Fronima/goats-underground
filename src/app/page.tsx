@@ -80,17 +80,19 @@ async  function Home() {
   return (
     <main className="flex flex-col h-gull w-full overflow-hidden front-page">
       <div className="h-screen w-full relative">
-        <div className="top-0 w-full h-full"></div>
+        <div className="top-0 w-full h-full">
+          
+        </div>
         <div className=" absolute top-10 sm:top-16 md:top-[15
           vh] w-full flex items-center justify-center">
           <div className="flex flex-col landscape:flex-row lg:flex-row items-center justify-center gap-10">
             
             <GoatSplashSVG className="w-[70vw] md:w-[40vw] lg:w-[40vw] h-[50vh] sm:h-[40vh]  lg:h-[70vh]"/>
-            <div className={"top-0  md:gap-3 flex flex-col justify-center text-start " + oswald.className}>
+            <div className={"top-0  md:gap-3 flex flex-col justify-center text-start p-5 " + oswald.className}>
               {
                 SiteConfig.navItems.map((link) => (
                   <Link 
-                    className={`text-black text-[8vw] md:text-[3vw] font-extrabold  hover:text-white hover:pl-1 transition ease-in-out duration-300 after:mix-blend-plus-lighter`}
+                    className={`text-black text-[8vw] md:text-[3vw] font-extrabold  hover:text-white hover:translate-x-1 transition ease-in-out duration-300 after:mix-blend-plus-lighter`}
                     key={link.href}
                     href={link.href}
                   >{link.name}</Link>

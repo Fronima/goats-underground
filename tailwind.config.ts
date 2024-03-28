@@ -8,6 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        "marquee": "marquee 10s linear infinite",
+      },
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(10%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+      },
       screens: {
         "wide": { "raw": "screen and (device-aspect-ratio: 16/9)" },
         "landscape": { "raw": "(orientation: landscape)" },

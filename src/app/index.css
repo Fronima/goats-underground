@@ -9,7 +9,9 @@
 
 .front-page{
     background: rgb(2,0,36);
-    background: linear-gradient(20deg, rgba(2,0,36,1) 0%, theme(colors.gu-brand.begin) 100%);    
+    /* figure out how to disable checking for this line */
+    background: linear-gradient(20deg, rgba(2,0,36,1) 0%, theme(colors.gu-brand.begin) 100%); /* stylelint-disable-line */
+   
 }
 
 .front-page-yellow{
@@ -19,6 +21,7 @@
 
 
 .brand-color-{
+    @ts-ignore
     background: linear-gradient(20deg, rgba(2,0,36,1) 0%, theme(colors.gu-brand.DEFAULT) 100%);  
 }
 
