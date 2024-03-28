@@ -10,6 +10,7 @@ import ContactPage from "./contact/page";
 import Link from "next/link";
 import './index.css'
 import { sendGTMEvent } from "@next/third-parties/google";
+import { EventItem } from "./events"
 import { FaYoutube, FaFacebook, FaInstagram, FaTwitter, FaTiktok, FaArrowUp, FaCaretUp } from "react-icons/fa"
 import PopupButton from "@/components/popup-button";
 import GoatSplashSVG from "@/components/goat-splash";
@@ -161,24 +162,8 @@ async  function Home() {
                   events.filter(
                     (event) => new Date(event.date) > new Date()
                   ).map((event) => {
-                    const date = new Date(event.date);
                     return (
-                      <div key={event.name} className="flex flex-col md:flex-row w-full bg-gradient-to-r from-gu-brand-end to-gu-brand-end p-2 gap-2">
-                        <div className="flex flex-row gap-2 md:gap-0 md:flex-col w-full sm:w-[8vw]">
-                          <h1 className="text-3xl text-black font-bold text-white text-left ">{date.toLocaleString('default', {month: "short"}).toUpperCase()}</h1>
-                          <h1 className="text-3xl text-black text-black text-right ">{date.toLocaleString('default', {day: '2-digit'})}</h1>
-                        </div>
-                        <div className="flex flex-col gap-2 bg-black w-full p-1 px-2">
-                          <h2 className="text-xl text-black font-bold text-white">{event.name}</h2>
-                          {event.location && <p className="text-black text-white">{event.location}</p>}
-                          <p className="text-black font-bold text-white">{event.description}</p>
-                          {event.link && 
-                          <Link href={event.link}>
-                            {"Get Tickets"}
-                          </Link>
-                          }
-                        </div>
-                      </div>
+                      EventItem({event})
                     )
                   })
                 }
