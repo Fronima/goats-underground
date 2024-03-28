@@ -15,7 +15,7 @@ export default async function BlogDetail({params}: {params: {slug: string}}) {
       <div className='flex-col flex gap-4 mt-5'>
         {blog[0].content.map((block:any) => {
           return (
-            <div>
+            <div key={block.children[0]}>
               <p>{block.children[0].text}</p>
             </div>
           )
