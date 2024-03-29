@@ -10,7 +10,7 @@ import ContactPage from "./contact/page";
 import Link from "next/link";
 import './index.css'
 import { sendGTMEvent } from "@next/third-parties/google";
-import { EventItem } from "./events"
+import { BannerEvent } from "./events"
 import { FaYoutube, FaFacebook, FaInstagram, FaTwitter, FaTiktok, FaArrowUp, FaCaretUp } from "react-icons/fa"
 import PopupButton from "@/components/popup-button";
 import GoatSplashSVG from "@/components/goat-splash";
@@ -163,7 +163,7 @@ async  function Home() {
                     (event) => new Date(event.date) > new Date()
                   ).map((event) => {
                     return (
-                      EventItem({event})
+                      BannerEvent({event})
                     )
                   })
                 }
