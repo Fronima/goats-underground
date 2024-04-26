@@ -5,7 +5,7 @@ import { EventItem } from "../events"
 export default async function Events(){
     const events:Event[] = await getEvents()
     const upcoming = events.filter(
-        (event) => new Date(event.date) > new Date()
+        (event) => new Date(event.date) >= new Date()
     )
     const past = events.filter(
         (event) => new Date(event.date) < new Date()
