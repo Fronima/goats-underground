@@ -160,7 +160,7 @@ async  function Home() {
                 <p className="text-2xl text-black font-bold text-white">{"Upcoming Events"}</p>
                 {
                   events.filter(
-                    (event) => new Date(event.date) > new Date()
+                    (event) => new Date(event.date).getTime() >= Date.now()
                   ).map((event) => {
                     return (
                       BannerEvent({event})
