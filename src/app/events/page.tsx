@@ -14,7 +14,9 @@ export default async function Events(){
         <div className="min-h-screen pt-20 px-4">
             <h1 className="text-2xl font-bold mb-2">Upcoming</h1>
             <ul className="flex flex-col gap-3">
-                {upcoming.map((event, index) => (
+                {upcoming
+                    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+                    .map((event, index) => (
                    <EventItem key={event.name} event={event} />
                 ))}
             </ul>
@@ -22,7 +24,9 @@ export default async function Events(){
             <>
             <h1 className="text-2xl font-bold mb-2 mt-4">Past</h1>
             <ul className="flex flex-col gap-3">
-                {past.map((event, index) => (
+                {past
+                    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+                    .map((event, index) => (
                    <EventItem key={event.name} event={event} />
                 ))}
             </ul>
