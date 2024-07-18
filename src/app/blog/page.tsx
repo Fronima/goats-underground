@@ -20,7 +20,7 @@ function BlogPost({className, post} : {className?: string, post: Blog}){
 
 }
 
-export default async function Blog() {
+export default async function Blogs() {
   const blogs:Blog[] = await getAllBlogs();
   return (
     <div className={`min-h-screen`}>
